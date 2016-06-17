@@ -4,7 +4,7 @@ var restify = require('restify');
 //var bot = new builder.TextBot();
 var bot = new builder.BotConnectorBot();
 var bot = new builder.BotConnectorBot({
-  appId: 'MyAppId', appSecret: 'MyAppSecret' });
+  appId: 'YamaBotTest', appSecret: 'e5c5e51680cd4321b3a10eeb9096b64a' });
   
 var command = new builder.CommandDialog();
 
