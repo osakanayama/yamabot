@@ -2,12 +2,10 @@ var restify = require('restify');
 var builder = require('botbuilder');
 
 var bot = new builder.BotConnectorBot({ appId: process.env.appId, appSecret: process.env.appSecret});
-var bot = new builder.BotConnectorBot({ appId: 'YamaBotTest', appSecret: 'e5c5e51680cd4321b3a10eeb9096b64a' });
-var dialog   = new builder.CommandDialog();
+var url = 'https://api.projectoxford.ai/luis/v1/application?id=' + process.env.luisId
+    + '&subscription-key=' + process.env.luisSubscriptionKey
+var dialog = new builder.LuisDialog(url);
 
-dialog.matches(['Hi', 'Hello', 'こんにちは'], function (session) {
-  session.send('こんにちは');
-});
 bot.add('/', dialog);
 
 // Intent="what_day"の場合の処理
