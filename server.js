@@ -11,7 +11,7 @@ dialog.matches(['Hi', 'Hello', 'こんにちは'], function (session) {
 bot.add('/', dialog);
 
 var server = restify.createServer();
-server.post('/v1/messages', bot.listen());
+server.post('/api/messages', bot.listen());
 server.listen(process.env.port || 8080, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
