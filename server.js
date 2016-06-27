@@ -26,6 +26,22 @@ dialog.on('what_day', function(session, args) {
     }
 });
 
+// Intent="WhenSubmit"の場合の処理
+dialog.on('WhenSubmit', function(session, args) {
+    console.log('message:');
+    console.log(session.message);
+
+    var date = builder.EntityRecognizer.findEntity(args.entities, 'builtin.datetime.date');
+    console.log('date:');
+    console.log(date);
+    
+    var item = builder.EntityRecognizer.findEntity(args.entities, 'Item');
+    var subject = builder.EntityRecognizer.findEntity(args.entities, 'Subject');
+    var naiyou = builder.EntityRecognizer.findEntity(args.entities, 'Naiyou');
+
+    session.send(item + 'を' + date + 'にするには' + subject + '?');
+});
+
 // Intent="None"の場合の処理
 dialog.onDefault(function(session, args) {
     console.log('args:');
