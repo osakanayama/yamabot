@@ -37,10 +37,9 @@ dialog.on('WhenSubmit', function(session, args) {
     
     var item = builder.EntityRecognizer.findEntity(args.entities, 'Item');
     var subject = builder.EntityRecognizer.findEntity(args.entities, 'Subject');
-    var naiyou = builder.EntityRecognizer.findEntity(args.entities, 'Naiyou');
 
-        var d = new Date(date.resolution.date);
-    session.send(item.entity + 'を' + d + 'にするには' + subject.entity + '?');
+    var d = date.resolution.date;
+    session.send(item + 'を' + d + 'にするには' + subject + '?');
 });
 
 // Intent="None"の場合の処理
